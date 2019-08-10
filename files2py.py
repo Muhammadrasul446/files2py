@@ -37,3 +37,6 @@ if len(paths) != 0:
         script_file.write(bytes("    with open(file_names[i], 'wb') as new_file:\n", encoding="utf-8"))
         script_file.write(bytes("        for byte_file in byte_files[i]:\n", encoding="utf-8"))
         script_file.write(bytes("            new_file.write(byte_file)\n", encoding="utf-8"))
+else:
+    print('No path was given!')
+input('Press Enter to finish script...')
