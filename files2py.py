@@ -22,6 +22,8 @@ if len(paths) != 0:
     with open(fname, 'wb') as script_file:
         script_file.write(bytes("file_names = [", encoding="utf-8"))
         for path in paths:
+            while path.find('/') != -1:
+                path = path[path.find('/') + 1:]
             script_file.write(bytes('"' + path + '", ', encoding="utf-8"))
         script_file.write(bytes("]\n\n", encoding="utf-8"))
         script_file.write(bytes("byte_files = [", encoding="utf-8"))
