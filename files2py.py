@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import codecs
+from codecs import encode as codecs_encode
 from os.path import isfile as file_exists
 
 
@@ -43,7 +43,7 @@ if len(paths) != 0:
         for file in paths:
             with open(file, 'rb') as reading_file:
                 bytes_of_file = reading_file.read()
-            bytes_of_file = codecs.encode(bytes_of_file, 'zip').hex()
+            bytes_of_file = codecs_encode(bytes_of_file, 'zip').hex()
             script_file.write(('"' + str(bytes_of_file) + '",\n').encode())
 
         script_file.write("]\n\n".encode("utf-8"))
